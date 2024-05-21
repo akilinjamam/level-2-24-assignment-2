@@ -12,5 +12,6 @@ productRouter.post(
 
 productRouter.get('/', productController.getProduct)
 productRouter.get('/:id', productController.getProductById)
+productRouter.put('/:id', productController.updateProductById)
 
 export default productRouter

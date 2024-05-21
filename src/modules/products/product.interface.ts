@@ -14,6 +14,7 @@ export interface TProduct {
   price: number
   category: string
   tags: string[]
+  newTag?: any
   variants: TVariant[]
   inventory: TInventory
 }
