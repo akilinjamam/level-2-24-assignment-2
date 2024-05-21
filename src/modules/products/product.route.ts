@@ -13,5 +13,6 @@ productRouter.post(
 productRouter.get('/', productController.getProduct)
 productRouter.get('/:id', productController.getProductById)
 productRouter.put('/:id', productController.updateProductById)
+productRouter.delete('/:id', productController.deleteProductById)
 
 export default productRouter

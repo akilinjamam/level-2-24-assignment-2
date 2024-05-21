@@ -74,9 +74,16 @@ const upldateProductById = async (id: string, data: Partial<TProduct>) => {
   }
 }
 
+const deleteProductById = async (id: string) => {
+  const result = await Product.deleteOne({ _id: id })
+
+  return result
+}
+
 export const productService = {
   createProduct,
   getProduct,
   getProductById,
   upldateProductById,
+  deleteProductById,
 }
