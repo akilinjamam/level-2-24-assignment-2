@@ -7,9 +7,22 @@ const createProduct = async (product: TProduct) => {
   return result
 }
 
-const getProduct = async () => {
-  const result = await Product.find({})
+const getProduct = async (queryData: any) => {
+  const fields = ['name', 'description', 'category']
 
+  if (queryData) {
+    const search = await Product.aggregate([
+      {
+        $match: {
+          $or: fields?.map((item) => {
+            return { [item]: { $regex: queryData, $options: 'i' } }
+          }),
+        },
+      },
+    ])
+    return search
+  }
+  const result = await Product.find()
   return result
 }
 
