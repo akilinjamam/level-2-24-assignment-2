@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
 import productRouter from './modules/products/product.route'
+import orderRouter from './modules/orders/orders.route'
 const app: Application = express()
 
 app.use(cors())
@@ -15,6 +16,7 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 app.use('/api/products/', productRouter)
+app.use('/api/orders/', orderRouter)
 
 // wrong routes
 
